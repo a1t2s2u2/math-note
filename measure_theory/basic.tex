@@ -1,0 +1,89 @@
+\begin{definition}[σ-加法族・可測空間・可測集合]
+集合 $X$ に対し，部分集合族 $\mathcal{F}\subset\mathcal{P}(X)$ が次を満たすとき，$\mathcal{F}$ を $X$ 上の σ-加法族という：
+\begin{enumerate}
+\item $X\in\mathcal{F}$
+\item $A\in\mathcal{F}\Rightarrow A^c:=X\setminus A\in\mathcal{F}$（補集合に関して閉じている）,
+\item $A_n\in\mathcal{F}\ (n=1,2,\dots)\Rightarrow \bigcup_{n=1}^\infty A_n\in\mathcal{F}$（可算和に関して閉じている）.
+\end{enumerate}
+対 $(X,\mathcal{F})$ を可測空間という．集合 $A\subset X$ が $\mathcal{F}$ に属するとき，$A$ を可測集合という．
+\end{definition}
+
+\begin{definition}[測度・測度空間]
+可測空間 $(X,\mathcal{F})$ 上の写像
+\[
+\mu:\mathcal{F}\to[0,\infty]
+\]
+が次の性質を満たすとき，$\mu$ を測度という：
+\begin{enumerate}
+\item $\mu(\varnothing)=0$,
+\item 任意の互いに素な列 $\{A_n\}_{n=1}^\infty\subset\mathcal{F}$ に対し，
+\[
+\mu\Bigl(\bigcup_{n=1}^\infty A_n\Bigr)=\sum_{n=1}^\infty\mu(A_n).
+\]
+\end{enumerate}
+三つ組 $(X,\mathcal{F},\mu)$ を測度空間という．
+\end{definition}
+
+ここで測度は拡張実数値 $[0,\infty]$ を取ることが許される点に注意する．可算加法性から有限加法性・非負性などの基本的性質が従う．特に単調性（定理）が導かれる。
+
+\begin{theorem}[測度の単調性]
+測度空間 $(X,\mathcal{F},\mu)$ において，可測集合 $S,T\in\mathcal{F}$ が $S\subseteq T$ を満たすとき，
+\[
+\mu(S)\le\mu(T)
+\]
+が成り立つ．
+\end{theorem}
+
+\begin{proof}
+$S\subseteq T$ と仮定すると，集合の分解
+\[
+T=S\cup (T\setminus S)
+\]
+かつ
+\[
+S\cap (T\setminus S)=\varnothing
+\]
+が成り立つ．$S,T\setminus S\in\mathcal{F}$ なので可算（ここでは有限）加法性より
+\[
+\mu(T)=\mu(S)+\mu(T\setminus S).
+\]
+測度は非負値を取るため $\mu(T\setminus S)\ge0$ であり，従って $\mu(T)\ge\mu(S)$ が得られる．
+\end{proof}
+
+\begin{theorem}[測度の単調性]
+測度空間 $(X,\mathcal{F},\mu)$ において，
+可測集合 $S,T \in \mathcal{F}$ が $S \subseteq T$ を満たすとき，
+\[
+\mu(S) \le \mu(T)
+\]
+が成り立つ。
+\end{theorem}
+
+\begin{proof}
+$S \subseteq T$ と仮定する。
+このとき $T$ は
+\[
+T = S \cup (T \setminus S)
+\]
+と分解でき，さらに
+\[
+S \cap (T \setminus S) = \varnothing
+\]
+が成り立つ。
+
+$S$ および $T \setminus S$ はともに $\mathcal{F}$ に属する（可測である）ので，
+測度 $\mu$ の（互いに素な集合に対する）加法性より
+\[
+\mu(T)
+= \mu\bigl(S \cup (T \setminus S)\bigr)
+= \mu(S) + \mu(T \setminus S)
+\]
+が得られる。
+
+測度は非負であるから $\mu(T \setminus S) \ge 0$ であり，
+したがって
+\[
+\mu(T) \ge \mu(S)
+\]
+が従う。
+\end{proof}
