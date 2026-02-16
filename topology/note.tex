@@ -1,0 +1,45 @@
+\begin{definition}[位相空間]
+集合 $X$ の部分集合族 $\mathcal{O}$ が以下を満たすとする。
+\begin{enumerate}
+    \item 【全体集合と空集合は開集合】 $X \in \mathcal{O}, \emptyset \in \mathcal{O}$
+    \item 【有限個の開集合の共通部分は開集合】 $O_1, O_2, \dots, O_m \in \mathcal{O}$ ならば、 $\bigcap_{i=1,2,\dots,m} O_i \in \mathcal{O}$
+    \item 【任意個の開集合の和集合は開集合】 $\{O_\lambda\}_{\lambda \in \Lambda}$ が各 $\lambda \in \Lambda$ について $O_\lambda \in \mathcal{O}$ を満たすならば、 $\bigcup_{\lambda \in \Lambda} O_\lambda \in \mathcal{O}$
+\end{enumerate}
+このとき、 $\mathcal{O}$ を $X$ の\textbf{位相 (topology)} といい、 $(X, \mathcal{O})$ （または単に $X$）を\textbf{位相空間 (topological space)} という。また、 $O \in \mathcal{O}$ を $(X, \mathcal{O})$ の\textbf{開集合 (open set)} という。さらに、点 $x \in X$ を含む開集合 $O \in \mathcal{O}$ を $x$ の\textbf{開近傍 (open neighborhood)} といい、本書では開近傍を単に\textbf{近傍 (neighborhood)} ともいう。
+\end{definition}
+
+\begin{definition}[連続写像]
+$(X_1, \mathcal{O}_1), (X_2, \mathcal{O}_2)$ を位相空間とする。写像 $f \colon X_1 \to X_2$ が\textbf{連続 (continuous)} であるとは、 $O \in \mathcal{O}_2$ ならば常に $f^{-1}(O) \in \mathcal{O}_1$ となること、すなわち、 $(X_2, \mathcal{O}_2)$ の任意の開集合 $O$ に対して、その逆像 $f^{-1}(O)$ が $(X_1, \mathcal{O}_1)$ の開集合となることである。
+\end{definition}
+
+\begin{proposition}[連続写像の合成は連続]
+$(X_1, \mathcal{O}_1), (X_2, \mathcal{O}_2), (X_3, \mathcal{O}_3)$ を位相空間とする。連続写像 $f \colon X_1 \to X_2$ と $g \colon X_2 \to X_3$ の合成 $g \circ f \colon X_1 \to X_3$ もまた連続である。
+\end{proposition}
+\begin{proof}
+
+この命題の証明を行います。合成写像 $g \circ f$ が連続であることを示すためには、任意の開集合 $V \in \mathcal{O}_3$ に対して、その逆像 $(g \circ f)^{-1}(V)$ が $X_1$ において開であることを示す必要があります。
+
+### 証明
+
+1. 写像 $g \colon X_2 \to X_3$ が連続であるため、任意の開集合 $V \in \mathcal{O}_3$ に対して、その逆像 $g^{-1}(V)$ が $X_2$ において開集合である。すなわち、
+
+   $$
+   g^{-1}(V) \in \mathcal{O}_2.
+   $$
+
+2. 次に、写像 $f \colon X_1 \to X_2$ も連続であるので、$g^{-1}(V)$ が $X_2$ において開集合であることから、逆像 $f^{-1}(g^{-1}(V))$ は $X_1$ において開であることが分かる。すなわち、
+
+   $$
+   f^{-1}(g^{-1}(V)) \in \mathcal{O}_1.
+   $$
+
+3. ここで、合成写像の逆像に関する性質により次のように表現できる：
+
+   $$
+   (g \circ f)^{-1}(V) = f^{-1}(g^{-1}(V)).
+   $$
+
+4. よって、任意の開集合 $V \in \mathcal{O}_3$ に対して $(g \circ f)^{-1}(V)$ が $X_1$ において開であるため、合成写像 $g \circ f$ は連続であることが示されました。
+
+以上で証明は完了です。$\blacksquare$
+\end{proof}
